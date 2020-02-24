@@ -6,6 +6,7 @@ var game = function(){
 
     this.bird = null;
     this.background = null;
+    this.base = null;
 
     var self = this;
 
@@ -23,6 +24,10 @@ var game = function(){
         //create background
         this.background = new background(this);
         this.background.init();
+
+        //create base
+        this.base = new base(this);
+        this.base.init();
 
         //Waiting for mouse click
         this.mouseEventListener();
@@ -46,11 +51,13 @@ var game = function(){
     this.update = function(){
         this.bird.update();
         this.background.update();
+        this.base.update();
 
     }
 
     this.draw = function(){
         this.background.draw();
+        this.base.draw();
         this.bird.draw();
         
     }

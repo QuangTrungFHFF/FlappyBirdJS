@@ -96,7 +96,7 @@ var bird = function (game) {
 
     this.draw = function () {
         if (self.loaded[0] && self.loaded[1] && self.loaded[2]) {
-            self.game.context.drawImage(self.currentBirdImage, 100, this.birdPos);
+            self.game.context.drawImage(self.currentBirdImage, 66, this.birdPos);
             //console.log('bird drawn');
         }
     }

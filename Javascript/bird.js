@@ -1,7 +1,7 @@
 var bird = function (game) {
     this.game = game;
     this.images = [];
-    this.loaded = [false, false, false];
+    this.loaded = [false, false, false];    
 
     this.currentBirdImage = null;
     this.currentFrame = 0;
@@ -70,6 +70,9 @@ var bird = function (game) {
             this.birdPos += this.birdSpeed * 1;
             console.log(this.birdPos);
             console.log(this.birdSpeed);
+        }
+        else{
+            this.game.gameOver = true;
         }
 
 

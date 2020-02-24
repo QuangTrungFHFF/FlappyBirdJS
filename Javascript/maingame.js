@@ -3,6 +3,7 @@ var game = function(){
     this.context = null;
     this.width = 288;
     this.height =512;
+    this.gameOver = false;
 
     this.bird = null;
     this.background = null;
@@ -49,9 +50,12 @@ var game = function(){
     }
 
     this.update = function(){
-        this.bird.update();
-        this.background.update();
-        this.base.update();
+        if(!this.gameOver){
+            this.bird.update();
+            this.background.update();
+            this.base.update();
+        } 
+        
 
     }
 

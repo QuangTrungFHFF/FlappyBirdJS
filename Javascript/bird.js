@@ -7,10 +7,10 @@ var bird = function (game) {
     this.currentFrame = 0;
     this.birdPos = 0;
     this.birdSpeed = 0;
-    this.birdAcceleration = 0.5;
+    this.birdAcceleration = 1;
+    this.isUpDirection = false; // false = down ; true = up;
 
     self = this;
-
 
     this.init = function () {
         this.loadImages();
@@ -61,14 +61,18 @@ var bird = function (game) {
         this.changeImage(self.currentFrame);
 
         //Adjust the bird position
-        if(this.birdPos <= 480){
+        if (this.birdPos < 0) {
+            this.birdSpeed += this.birdAcceleration;            
+            this.birdPos = 0;
+            
+        } else if (this.birdPos <= 480) {
             this.birdSpeed += this.birdAcceleration;
             this.birdPos += this.birdSpeed * 1;
+            console.log(this.birdPos);
+            console.log(this.birdSpeed);
         }
-        else{
-            this.birdPos = 488;
-        }
-        
+
+
 
         //console.log('bird update');
     }
@@ -81,6 +85,13 @@ var bird = function (game) {
         } else if (frame == 15) {
             self.currentBirdImage = self.images[2];
         }
+    }
+
+    this.flap = function () {
+        console.log('click');
+        self.birdSpeed = -15;
+
+
     }
 
     this.draw = function () {

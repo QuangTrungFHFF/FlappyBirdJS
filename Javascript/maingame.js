@@ -24,11 +24,17 @@ var game = function(){
         this.background = new background(this);
         this.background.init();
 
+        //Waiting for mouse click
+        this.mouseEventListener();
+
 
         this.loop();
+    }
 
-        
-
+    this.mouseEventListener = function(){
+        this.canvas.addEventListener('click', function(){
+            self.bird.flap();
+        })
     }
 
     this.loop = function(){

@@ -3,6 +3,8 @@ var background = function(game){
     this.image = null;
     this.loaded = false;
 
+    var self = this;
+
     this.init = function(){
         this.loadImage();
     }
@@ -21,14 +23,10 @@ var background = function(game){
     }
 
     this.draw = function(){
-        if(this.loaded == false){
-            this.game.context.drawImage(this.image,0,0);
+        if(self.loaded == false){            
+            return; 
         }
-        else
-        {
-            return;
-        }
-
-        
+        self.game.context.drawImage(this.image,0,0);
+             
     }
 }

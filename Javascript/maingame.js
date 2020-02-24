@@ -44,10 +44,11 @@ var game = function(){
     }
 
     this.draw = function(){
-        this.bird.draw();
         this.background.draw();
+        this.bird.draw();
+        
     }
 }
 
 var gameStart = new game();
-//gameStart.init();
+gameStart.init();

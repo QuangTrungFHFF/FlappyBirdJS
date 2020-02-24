@@ -12,11 +12,12 @@ var game = function(){
     var self = this;
 
     this.init = function(){
-        this.canvas = document.createElement('canvas');
+        this.canvas = document.createElement('canvas');        
         this.context = this.canvas.getContext('2d');
         this.canvas.width = this.width;
-        this.canvas.height =this.height;
-        document.body.appendChild(this.canvas);
+        this.canvas.height =this.height;        
+        var x = document.getElementById("gamescreen");        
+        x.appendChild(this.canvas);
 
         //create new bird
         this.bird = new bird(this);

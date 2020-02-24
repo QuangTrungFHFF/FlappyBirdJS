@@ -2,6 +2,7 @@ var background = function(game){
     this.game = game;
     this.image = null;
     this.loaded = false;
+    this.position = 0;
 
     var self = this;
 
@@ -19,14 +20,18 @@ var background = function(game){
     }
 
     this.update = function(){
-
+        this.position--;
+        if(this.position == -288){
+            this.position = 0;
+        }
+        
     }
 
     this.draw = function(){
         if(self.loaded == false){            
             return; 
         }
-        self.game.context.drawImage(this.image,0,0);
-             
+        self.game.context.drawImage(this.image,this.position,0);
+        self.game.context.drawImage(this.image,this.position+288,0);
     }
 }

@@ -41,10 +41,6 @@ var bird = function (game) {
         imgBird.src = 'sprites/bird.png';
         imgBirdUp.src = 'sprites/birdup.png';
         imgBirdDown.src = 'sprites/birddown.png';
-
-
-
-
     }
 
     this.update = function () {
@@ -68,16 +64,32 @@ var bird = function (game) {
         } else if (this.birdPos <= 480) {
             this.birdSpeed += this.birdAcceleration;
             this.birdPos += this.birdSpeed * 1;
-            console.log(this.birdPos);
-            console.log(this.birdSpeed);
+            //console.log(this.birdPos);
+            //console.log(this.birdSpeed);
         }
         else{
             this.game.gameOver = true;
         }
 
+        //Check collision
+        this.checkCollision();
 
 
         //console.log('bird update');
+    }
+
+    this.checkCollision = function(){
+        //console.log("YUP" + this.game.pipe.positionYUp);
+        //console.log("bird" + this.birdPos);
+        if(
+            (
+                66 + 34 >= this.game.pipe.positionX && 66 <= this.game.pipe.positionX +52
+            ) &&             
+            (
+                this.birdPos + 24 >= this.game.pipe.positionY || this.birdPos <= this.game.pipe.positionYUp +320  
+            )){
+            this.game.gameOver = true;
+        }
     }
 
     this.changeImage = function (frame) {

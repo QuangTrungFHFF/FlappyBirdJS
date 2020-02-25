@@ -5,6 +5,7 @@ var pipe = function(game){
     this.positionX = 300;
     this.positionY =120;
     this.gap = 100;
+    this.positionYUp = this.positionY - this.gap -320;
 
     var self = this;
 
@@ -36,7 +37,7 @@ var pipe = function(game){
         if(self.loaded == false){            
             return; 
         }
-        self.game.context.drawImage(this.image,this.positionX,this.positionY - this.gap - 320);
+        self.game.context.drawImage(this.image,this.positionX,this.positionYUp);
         self.game.context.drawImage(this.image,this.positionX, this.positionY);
     }
 }

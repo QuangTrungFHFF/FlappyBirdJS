@@ -63,10 +63,7 @@ var game = function(){
             this.background.update();
             this.pipe.update();
             this.base.update();
-            
         } 
-        
-
     }
 
     this.draw = function(){

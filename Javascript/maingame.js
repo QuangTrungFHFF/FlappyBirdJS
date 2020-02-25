@@ -68,5 +68,25 @@ var game = function(){
     }
 }
 
-var gameStart = new game();
-gameStart.init();
+var menu = function(){
+    this.width = 288;
+    this.height =512;
+    
+
+    this.init = function(){       
+        this.mouseEventListener();
+    }
+
+    this.mouseEventListener = function(){
+        var start = document.getElementById('menuscreen');        
+        start.addEventListener('click', function(){
+            start.remove();
+            var gameStart = new game();
+            gameStart.init();
+        })
+    }
+}
+
+var menuScreen = new menu();
+menuScreen.init();
+

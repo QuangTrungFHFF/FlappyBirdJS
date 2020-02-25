@@ -18,20 +18,63 @@
             user-select: none;
         }
         #gamescreen{
+            position: relative;
             text-align: center;
             width: 100%;
+            height: 800px;
             margin: auto;
-            margin-top: 20px;            
+            margin-top: 20px;                    
+        }
+        #menuscreen{            
+            text-align: center;
+            width: 292px;
+            height: 516px;  
+            margin: auto;          
+            background-image: url('sprites/background.png');
+            border-radius: 10px;
+            border: 2px solid rgb(240, 113, 9);
+            box-shadow: 0px 8px 16px 0px rgb(73, 72, 72);  
+        }
+        #menuimage{
+            width: 184px;
+            height: 267px;
+            background-image: url('sprites/message.png');
+            margin: auto;
+            margin-top: 30px;
+            position: relative;
+            animation-name: ready;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            background-repeat: no-repeat;
+        }
+        #menuimage:hover{
+            animation-name: ready;
+            animation-duration: 0.2s;
+            animation-iteration-count: infinite;
+            cursor: pointer;
+        }
+        @keyframes ready{
+            0% {margin-top: 30px;}
+            20% {margin-top: 32px;}
+            40% {margin-top: 34px;}
+            60% {margin-top: 36px;}
+            80% {margin-top: 34px;}
+            100% {margin-top: 32px;}
         }
         #gamescreen canvas{
             border-radius: 10px;
             border: 2px solid rgb(240, 113, 9);
+            box-shadow: 0px 8px 16px 0px rgb(73, 72, 72);
         }
     </style>
 </head>
 <body>
     <h1 class="gametitle">Flappy Bird Clone Using JavaScript</h1>
-    <div id="gamescreen"></div>
+    <div id="gamescreen">
+        <div id="menuscreen">
+            <div id="menuimage"></div>
+        </div>
+    </div>
     <script type = "text/javascript" src = "Javascript/bird.js"></script>
     <script type = "text/javascript" src = "Javascript/pipe.js"></script>
     <script type = "text/javascript" src = "Javascript/background.js"></script>

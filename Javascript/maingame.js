@@ -8,6 +8,7 @@ var game = function(){
     this.bird = null;
     this.background = null;
     this.base = null;
+    this.pipe = null;
 
     var self = this;
 
@@ -26,10 +27,16 @@ var game = function(){
         //create background
         this.background = new background(this);
         this.background.init();
+        
+        //create pipe
+        this.pipe = new pipe(this);
+        this.pipe.init();
 
         //create base
         this.base = new base(this);
         this.base.init();
+
+        
 
         //Waiting for mouse click
         this.mouseEventListener();
@@ -54,14 +61,17 @@ var game = function(){
         if(!this.gameOver){
             this.bird.update();
             this.background.update();
+            this.pipe.update();
             this.base.update();
+            
         } 
         
 
     }
 
     this.draw = function(){
-        this.background.draw();
+        this.background.draw();        
+        this.pipe.draw();
         this.base.draw();
         this.bird.draw();
         
@@ -78,8 +88,9 @@ var menu = function(){
     }
 
     this.mouseEventListener = function(){
-        var start = document.getElementById('menuscreen');        
-        start.addEventListener('click', function(){
+        var start = document.getElementById('menuscreen'); 
+        var startImage = document.getElementById('menuimage');       
+        startImage.addEventListener('click', function(){
             start.remove();
             var gameStart = new game();
             gameStart.init();

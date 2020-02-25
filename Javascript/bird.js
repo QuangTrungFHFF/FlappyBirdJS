@@ -7,7 +7,7 @@ var bird = function (game) {
     this.currentFrame = 0;
     this.birdPos = 0;
     this.birdSpeed = 0;
-    this.birdAcceleration = 1;
+    this.birdAcceleration = 1.5;
     this.isUpDirection = false; // false = down ; true = up;
 
     self = this;
@@ -92,7 +92,7 @@ var bird = function (game) {
 
     this.flap = function () {
         console.log('click');
-        self.birdSpeed = -15;
+        self.birdSpeed = -10;
 
 
     }

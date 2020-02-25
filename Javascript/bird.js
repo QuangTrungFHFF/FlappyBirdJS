@@ -74,15 +74,14 @@ var bird = function (game) {
         //Check collision
         this.checkCollision();
 
-        //Check score
-        this.checkScore();
+        
 
 
         //console.log('bird update');
     }
 
     this.checkCollision = function(){
-        console.log("YUP" + this.game.pipe.positionYUp);
+        //console.log("YUP" + this.game.pipe.positionYUp);
         //console.log("bird" + this.birdPos);
         if(
             (
@@ -95,13 +94,7 @@ var bird = function (game) {
         }
     }
 
-    this.checkScore = function(){
-        if(this.game.pipe.positionX + 52 == 66){
-            this.game.score++;
-            console.log("score" + this.game.score);
-        }
-        
-    }
+    
 
     this.changeImage = function (frame) {
         if (frame == 5) {
@@ -114,7 +107,7 @@ var bird = function (game) {
     }
 
     this.flap = function () {
-        console.log('click');
+        //console.log('click');
         self.birdSpeed = -10;
 
 

@@ -6,6 +6,8 @@ var pipe = function(game){
     this.positionY = 120;
     this.gap = 100;
     this.positionYUp = -300;
+    this.frame =0;
+    this.interval = 2;
 
     var self = this;
 
@@ -30,14 +32,30 @@ var pipe = function(game){
     }
 
     this.update = function(){
-        this.positionX -= 2;
+        this.frame++;
+        if(this.frame > 1000)
+        {
+            self.interval++;
+            this.frame = 0;
+        }
+        this.positionX -= self.interval;
+        
         if(this.positionX <= -56){
             this.positionX = 300;
             this.positionY = Math.floor(Math.random()*(420 - 120 + 1) + 120);
             this.gap = Math.floor(Math.random()*(160 - 80 + 1) + 80);
             this.positionYUp = this.positionY - this.gap -320;
         }
-        
+
+        //Check score
+        this.checkScore();
+    }
+
+    this.checkScore = function(){
+        if(this.positionX + -14 >=0 && this.positionX + -14 < self.interval ){
+            this.game.score += self.interval - 1;
+            console.log("score" + this.game.score);
+        }
         
     }
 

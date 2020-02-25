@@ -112,6 +112,15 @@ var game = function () {
         this.context.fillText("Score: " + this.score, this.canvas.width/2, this.canvas.height/3);
         this.gameOverShown = true;
         console.log("over"); 
+
+        var display = document.getElementById('container');
+        display.style.display = 'block';
+
+        var replay = document.getElementById('replay');
+        replay.addEventListener('click', function(){
+            location.reload();
+        })
+
     }
 }
 

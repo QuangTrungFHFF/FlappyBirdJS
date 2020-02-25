@@ -33,7 +33,7 @@ var pipe = function(game){
 
     this.update = function(){
         this.frame++;
-        if(this.frame > 1000)
+        if(this.frame > 700)
         {
             self.interval++;
             this.frame = 0;

@@ -108,7 +108,7 @@ var bird = function (game) {
 
     this.flap = function () {
         //console.log('click');
-        self.birdSpeed = -10;
+        self.birdSpeed = -9;
 
 
     }

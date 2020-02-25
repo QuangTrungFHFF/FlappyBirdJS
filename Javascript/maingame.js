@@ -77,6 +77,7 @@ var game = function () {
             this.pipe.draw();
             this.base.draw();
             this.bird.draw();
+            this.showScore();
         } else{
             if(!this.gameOverShown){
                 this.background.draw();
@@ -88,12 +89,21 @@ var game = function () {
         }
     }
 
+    //Show scrore
+    this.showScore = function(){
+        this.context.font = "18px Calibri";
+        this.context.fillStyle = "SlateBlue";        
+        this.context.shadowBlur = 4;
+        this.context.shadowColor = "rgba(0,0,0,0.3)";
+        this.context.fillText("Score: " + this.score, 210, 15);
+    }
+
     // Show game over image on the screen
     this.showGameOver = function(){   
         self.context.drawImage(self.gameOverScreen,50,50);
 
-        this.context.font = "30px Arial";
-        this.context.fillStyle = "red";
+        this.context.font = "30px Calibri";
+        this.context.fillStyle = "rgb(255, 111, 97)";
         this.context.textAlign = "center";
         this.context.shadowOffsetX = 3;
         this.context.shadowOffsetY = 3;

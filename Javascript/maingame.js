@@ -4,6 +4,10 @@ var game = function () {
     this.width = 288;
     this.height = 512;
     this.gameOver = false;
+    this.gameOverShown = false;
+    this.score = 0;
+    this.gameOverScreen = new Image();
+    this.gameOverScreen.src = 'sprites/gameover.png';  
     
 
     this.bird = null;
@@ -55,7 +59,7 @@ var game = function () {
     this.loop = function () {
         self.update();
         self.draw();
-        setTimeout(self.loop, 33);
+        setTimeout(self.loop, 33);  
     }
 
     this.update = function () {
@@ -67,19 +71,25 @@ var game = function () {
         } 
     }
     this.draw = function () {
-        this.background.draw();
-        this.pipe.draw();
-        this.base.draw();
-        this.bird.draw();
-        if(this.gameOver){
-            this.showGameOver();
+        if(!this.gameOver)
+        {
+            this.background.draw();
+            this.pipe.draw();
+            this.base.draw();
+            this.bird.draw();
+        } else{
+            if(!this.gameOverShown){
+                this.background.draw();
+                this.pipe.draw();
+                this.base.draw();
+                this.bird.draw();
+                this.showGameOver();
+            }
         }
     }
 
     // Show game over image on the screen
-    this.showGameOver = function(){     
-        this.gameOverScreen = new Image();
-        this.gameOverScreen.src = 'sprites/gameover.png';   
+    this.showGameOver = function(){   
         self.context.drawImage(self.gameOverScreen,50,50);
 
         this.context.font = "30px Arial";
@@ -89,7 +99,8 @@ var game = function () {
         this.context.shadowOffsetY = 3;
         this.context.shadowBlur = 4;
         this.context.shadowColor = "rgba(0,0,0,0.3)";
-        this.context.fillText("Score: " + 50, this.canvas.width/2, this.canvas.height/3);
+        this.context.fillText("Score: " + this.score, this.canvas.width/2, this.canvas.height/3);
+        this.gameOverShown = true;
         console.log("over"); 
     }
 }

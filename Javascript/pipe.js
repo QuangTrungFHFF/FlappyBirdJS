@@ -1,11 +1,11 @@
 var pipe = function(game){
     this.game = game;
-    this.image = null;
-    this.loaded = false;
+    this.image = [];
+    this.loaded = [false,false];
     this.positionX = 300;
-    this.positionY =120;
+    this.positionY = 120;
     this.gap = 100;
-    this.positionYUp = this.positionY - this.gap -320;
+    this.positionYUp = -300;
 
     var self = this;
 
@@ -14,12 +14,19 @@ var pipe = function(game){
     }
 
     this.loadImage = function(){
-        this.image = new Image();
-        this.image.onload = function(){
-            self.loaded = true;
-            console.log('image loaded');
+        this.image[0] = new Image();
+        this.image[0].onload = function(){
+            self.loaded[0] = true;
+            console.log('image 1 loaded');
         }
-        this.image.src = 'sprites/pipe-red.png';
+        this.image[0].src = 'sprites/pipe-red.png';
+
+        this.image[1] = new Image();
+        this.image[1].onload = function(){
+            self.loaded[1] = true;
+            console.log('image 2 loaded');
+        }
+        this.image[1].src = 'sprites/pipe-red2.png';
     }
 
     this.update = function(){
@@ -27,17 +34,18 @@ var pipe = function(game){
         if(this.positionX <= -56){
             this.positionX = 300;
             this.positionY = Math.floor(Math.random()*(420 - 120 + 1) + 120);
-            this.gap = Math.floor(Math.random()*(180 - 80 + 1) + 80);
+            this.gap = Math.floor(Math.random()*(160 - 80 + 1) + 80);
+            this.positionYUp = this.positionY - this.gap -320;
         }
         
         
     }
 
     this.draw = function(){
-        if(self.loaded == false){            
+        if(self.loaded[0] == false || self.loaded[1] == false){            
             return; 
         }
-        self.game.context.drawImage(this.image,this.positionX,this.positionYUp);
-        self.game.context.drawImage(this.image,this.positionX, this.positionY);
+        self.game.context.drawImage(this.image[1],this.positionX,this.positionYUp);
+        self.game.context.drawImage(this.image[0],this.positionX, this.positionY);
     }
 }

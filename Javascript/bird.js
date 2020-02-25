@@ -79,7 +79,7 @@ var bird = function (game) {
     }
 
     this.checkCollision = function(){
-        //console.log("YUP" + this.game.pipe.positionYUp);
+        console.log("YUP" + this.game.pipe.positionYUp);
         //console.log("bird" + this.birdPos);
         if(
             (

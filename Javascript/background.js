@@ -1,3 +1,4 @@
+"use strict"
 var background = function(game){
     this.game = game;
     this.image = null;

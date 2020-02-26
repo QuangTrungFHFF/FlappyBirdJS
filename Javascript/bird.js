@@ -1,3 +1,4 @@
+"use strict"
 var bird = function (game) {
     this.game = game;
     this.images = [];
@@ -10,7 +11,7 @@ var bird = function (game) {
     this.birdAcceleration = 1.5;
     this.isUpDirection = false; // false = down ; true = up;
 
-    self = this;
+    var self = this;
 
     this.init = function () {
         this.loadImages();

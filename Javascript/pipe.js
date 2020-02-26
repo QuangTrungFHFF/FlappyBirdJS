@@ -1,3 +1,4 @@
+"use strict"
 var pipe = function(game){
     this.game = game;
     this.image = [];

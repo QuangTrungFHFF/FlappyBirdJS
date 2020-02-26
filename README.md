@@ -5,9 +5,10 @@ This project is written using raw Javascript.
 
 ## Controls
 
+Open flappy.html to play the game.<br>
 Click on the game screen using mouse to make the bird fly up. 
 
-### Game mechanics
+## Game mechanics
 
 • Fly the bird as far as you can without hitting a pipe or the ground.<br>
 • Each time the bird passes a pipe, the score is update.<br>
